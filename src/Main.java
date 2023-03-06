@@ -78,7 +78,14 @@ public class Main {
                 year2023.addSchool(school);
             }
             else if (option == 2){
-                for (int i = 0; i < year2023.currsize; i++){
+                //for (int i = 0; i < year2023.currsize; i++){
+                System.out.print("Enter a school's last name: ");
+                String filter = in.next();
+                int i = year2023.getIndex(filter);
+                if (i==-1){
+                    System.out.println("Error! School non-exist!");
+                }
+                else{
                     System.out.println("\n>>> School: "+year2023.year23[i].getSName());
                     for (int j = 0; j < year2023.year23[i].getCurrstunum(); j++){
                         System.out.println("\nStudent #"+(j+1)+"'s Info: ");
@@ -86,8 +93,18 @@ public class Main {
                         System.out.println("Student ID      : "+year2023.year23[i].student[j].getStu_id());
                         System.out.println("Mark            : "+year2023.year23[i].student[j].getMark());
                     }
-                    System.out.println("Average           : "+year2023.year23[i].calcAvgMarks());
-                    System.out.println("Standard Deviation  : "+year2023.year23[i].calcStdMarks());
+                    System.out.println("\nAverage           : "+year2023.year23[i].calcAvgMarks());
+                    System.out.println("Standard Deviation  : "+year2023.year23[i].calcStdMarks()+"\n");
+
+                }
+
+                //}
+            }
+            else if(option==3) {
+                for (int i = 0; i < year2023.currsize; i++) {
+                    System.out.println("\n>>> School: " + year2023.year23[i].getSName());
+                    System.out.println("Average           : " + year2023.year23[i].calcAvgMarks());
+                    System.out.println("Standard Deviation  : " + year2023.year23[i].calcStdMarks() + "\n");
 
                 }
             }
@@ -113,18 +130,18 @@ public class Main {
                         System.out.println("Student ID      : "+year2023.year23[i].student[j].getStu_id());
                         System.out.println("Mark            : "+year2023.year23[i].student[j].getMark());
                     }
-                    System.out.println("Average           : "+ year2023.year23[i].calcAvgMarks());
-                    System.out.println("Standard Deviation  : "+year2023.year23[i].calcStdMarks());
+                    System.out.println("\nAverage           : "+ year2023.year23[i].calcAvgMarks());
+                    System.out.println("Standard Deviation  : "+year2023.year23[i].calcStdMarks()+"\n");
 
                 }
             }
             System.out.println("-------------------- Menu --------------------");
             System.out.println("1. Add New School Record");
             System.out.println("2. Display Performance of Particular School");
-            System.out.println("3. List out the Average Score");
-            System.out.println("4. List out the Standard Deviation");
-            System.out.println("5. Remove Existing School Record\n");
-            System.out.println("6. Exit");
+            System.out.println("3. List out the Average Score and Standard Deviation");
+            System.out.println("4. Display the Best Performer");
+            System.out.println("5. Remove Existing School Record");
+            System.out.println("6. Exit\n");
 
             System.out.print("Option: ");
             option = in.nextInt();

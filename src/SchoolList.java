@@ -57,5 +57,27 @@ public class SchoolList {
         return year23[topstd];
     }
 
+    public int getIndex(String s_lname){
+        int index = -1;
+        if (year23 == null) {
+            index = -1;
+        }
+
+        int len = year23.length;
+        int i = 0;
+
+        while (i < len) {
+            if (year23[i].s_name.getSchool_lastname().equals(s_lname)) {
+                index = i;
+                break;
+            }
+            else {
+                i = i + 1;
+                index = -1;
+            }
+        }
+        return index;
+    }
+
 
 }
